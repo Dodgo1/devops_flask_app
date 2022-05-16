@@ -53,7 +53,7 @@ pipeline {
         }
         stage('Cleanup'){
             steps{
-                sh 'docker kill dodgo/devops_flask_app'
+                sh 'docker kill devops_flask_app'
                 sh 'docker rm devops_flask_app'
                 sh 'docker image rm dodgo/devops_flask_app:${BUILD_NUMBER}'
             }
