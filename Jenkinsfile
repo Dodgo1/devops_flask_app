@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clear running apps') {
             steps {
-                sh 'docker rm -f devops_flask_app:${BUILD_NUMBER} || true'
+                sh 'docker rm -f devops_flask_app || true'
             }
         }
 
@@ -37,8 +37,8 @@ pipeline {
         stage('Selenium tests') {
             steps {
                 dir('tests/') {
-                    sh 'pip3 install -r requirements.txt'
-                    sh 'python3 test_app.py'
+                    sh 'pip3 install -r Pipfile'
+                    sh 'pytest test_app.py'
                 }
             }
         }
