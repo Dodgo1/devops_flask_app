@@ -4,7 +4,7 @@ app = Flask(__name__)
 counter = 0
 
 
-@app.route('/', methods=('GET', 'POST'))
+@app.route('/')
 def index():
     return render_template('index.html')
 
