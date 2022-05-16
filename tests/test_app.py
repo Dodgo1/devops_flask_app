@@ -22,7 +22,12 @@ class TestIndex:
 
     button_plus = browser.find_element(locators.locate_by_id(plus_id))
     button_minus = browser.find_element(locators.locate_by_id(minus_id))
-    counter = browser.find_element(locators.locate_by_id(counter_id))
+
+
+    @pytest.fixture
+    def get_counter_value(self,):
+        counter_value = browser.find_element(locators.locate_by_id(self.counter_id)).value()
+        return int(counter_value)
 
     def test_plus(self, browser):
         self.button_plus.click()

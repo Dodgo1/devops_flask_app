@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "333c5f26323dfe968b931c0b63763950812e8d1d69454b76b9d13cb59889f5d3"
+            "sha256": "691c900175522f5f676b07bbf54f8bc6f8252ac8a219a32fd7bcf3ffea9035e5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -93,14 +93,6 @@
                 "sha256:ffaa5c925128e29efbde7301d8ecaf35c8c60ffbcd6a1ffd3a552177c8e5e796"
             ],
             "version": "==1.15.0"
-        },
-        "charset-normalizer": {
-            "hashes": [
-                "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597",
-                "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"
-            ],
-            "markers": "python_version >= '3'",
-            "version": "==2.0.12"
         },
         "cryptography": {
             "hashes": [
@@ -222,14 +214,6 @@
             "index": "pypi",
             "version": "==7.1.2"
         },
-        "requests": {
-            "hashes": [
-                "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61",
-                "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"
-            ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==2.27.1"
-        },
         "selenium": {
             "hashes": [
                 "sha256:866b6dd6c459210662bff922ee7c33162d21920fbf6811e8e5a52be3866a687f"
@@ -287,14 +271,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.26.9"
-        },
-        "webdriver-manager": {
-            "hashes": [
-                "sha256:2eb7c2fe38ec5b06e2090164923e4dfb7c3ac4e7140333a3de9c7956f5047858",
-                "sha256:b5b91b5df83181e002263fe27296967a5b19cb1ebe8e4a63ee83538394037df4"
-            ],
-            "index": "pypi",
-            "version": "==3.5.4"
         },
         "wsproto": {
             "hashes": [
