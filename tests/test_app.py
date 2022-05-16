@@ -1,52 +1,55 @@
-import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-from locators import *
+print("Connecting to webdriver")
+
+driver = webdriver.Remote(
+    command_executor=('http://selenium-env:4444/wd/hub'),
+    options=webdriver.FirefoxOptions()
+)
+
+def test_increment():
+    driver.get("http://devops_flask_app:5555/")
+
+    counter = driver.find_element(By.ID, "counter")
+    counter = int(counter.text) + 1
+
+    button = driver.find_element(By.ID, "plus")
+    button.click()
+
+    newcounter = driver.find_element(By.ID, "counter")
+    newcounter = int(newcounter.text)
+
+    assert counter == newcounter
+
+    print("Test 1 passed")
+
+def test_decrement():
+    driver.get("http://devops_flask_app:5555/")
+
+    counter = driver.find_element(By.ID, "counter")
+    counter = int(counter.text) - 1
+
+    button = driver.find_element(By.ID, "minus")
+    button.click()
+
+    newcounter = driver.find_element(By.ID, "counter")
+    newcounter = int(newcounter.text)
+
+    assert counter == newcounter
+
+    print("Test 2 passed")
+
+try:
+    print("Test 1")
+    test_increment()
+
+    print("Test 2")
+    test_decrement()
+
+finally:
+    print("Tests finished")
+
+    driver.quit()
 
 
-@pytest.fixture
-def browser():
-    browser = webdriver.Remote(
-        command_executor='http://selenium-env:4444/wd/hub',
-        options=webdriver.ChromeOptions()
-    )
-    browser.get("http://devops_flask_app:5555/")
-    yield browser
-    browser.quit()
-
-
-class TestIndex:
-    plus_id = "plus"
-    minus_id = "minus"
-    counter_id = "counter"
-
-    button_plus = browser.find_element(locators.locate_by_id(plus_id))
-    button_minus = browser.find_element(locators.locate_by_id(minus_id))
-
-
-    @pytest.fixture
-    def get_counter_value(self,):
-        counter_value = browser.find_element(locators.locate_by_id(self.counter_id)).value()
-        return int(counter_value)
-
-    def test_plus(self, browser):
-        self.button_plus.click()
-
-    def test_minus(self, browser):
-        self.button_minus.click()
-
-    def test_increment(self, browser):
-        counter_value = int(self.counter.text)
-
-        self.button_plus.click()
-        new_counter_value = int(self.counter.text)
-
-        assert new_counter_value != counter_value
-
-    def test_decrement(self, browser):
-        counter_value = int(self.counter.text)
-
-        self.button_minus.click()
-        new_counter_value = int(self.counter.text)
-
-        assert new_counter_value != counter_value
