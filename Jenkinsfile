@@ -37,7 +37,7 @@ pipeline {
         stage('Selenium tests') {
             steps {
                 dir('tests/') {
-                    sh 'pip3 install -r Pipfile'
+                    sh 'pip3 install -r ../Pipfile'
                     sh 'pytest test_app.py'
                 }
             }
